@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "C:\\Users\\Admin\\Documents\\website\\dbmspro"
+		},
+		{
+			"path": "C:\\Users\\Admin\\Desktop\\seproject"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "seproject"
+	}
+}

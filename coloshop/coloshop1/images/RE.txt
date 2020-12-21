@@ -1,0 +1,62 @@
+import re
+RE="a(ab+b)*abb"
+
+#word = "aabb"   #accepted
+#word = "aababb" #accepted
+#word="aabbabb"  #accepted
+#word="aabababb" #accepted
+#word="aabbaa"   #not accepted
+word="abb"      #not accepted
+
+split1 = RE.replace('(', ' (').replace('*', ' ').split()
+print("split1:")
+print(split1)
+split2=split1[1].replace('+',' ').replace('(','').replace(')','').split()
+print("split2:")
+print(split2)
+remaining=(word[1:len(word)-3])
+print("remaining")
+print(remaining)
+split2Count1=len(split2[0])
+split2Count2=len(split2[1])
+print("split2Count1:")
+print(split2Count1)
+print("split2Count2:")
+print(split2Count2)
+count=0
+if RE[0]==word[0]:                                     #checking presence of fixed alphabets
+    if RE[-3:]==word[-3:] and len(word)>3:
+        pass
+    else:
+        print("not accepted")
+        count=1
+else:
+    print("not accepted")
+    count = 1
+print(count)
+for i in split2:
+    print("i:")
+    print(i)
+    if split2Count2>1 or split2Count1>1:
+       maxCount=max(split2Count2,split2Count1)
+       flag=1
+
+    if len(remaining)>0:
+        if flag==0:
+            if i == split2[0] or i == split2[1]:
+                pass
+            else:
+                print("not accepted")
+                count = 1
+                break
+        elif flag==1:
+                if i==split2[0] or i==split2[1] or i==split2[0:maxCount] or i==split2[0:maxCount]:
+                   pass
+                else:
+                    print("not accepted")
+                    count = 1
+                    break
+print("count:")
+print(count)
+if count!=1:
+    print("accepted")
